@@ -1,0 +1,204 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+    height: 100%;
+    min-width: 321px;
+    width: 100%;
+    margin: 0;
+    background-color: lightsteelblue;
+}
+
+/*my css starts here*/
+
+
+.jumbotron {
+    padding-top: 1em;
+    padding-bottom: 2em;
+    max-height: 30em;
+    margin-bottom: 0;
+    background-image: url("./images/radiant-gradient.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#container-one {
+    background-color: lightsteelblue;
+}
+
+#simpleTodo {
+    font-family: 'Lobster', cursive;
+}
+
+#titleDiv {
+    margin-top: 0 !important;
+    margin-bottom: 1em !important;
+    color: papayawhip;
+    text-shadow: 3px 3px 8px maroon;
+    opacity: 0.95;
+}
+
+#taskTitle, #legend-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 1px 1px 2px wheat;
+}
+
+#taskTitle {
+    font-family: 'Lobster Two', cursive;
+}
+
+footer {
+    font-size: 14px;
+    color: white;
+    background-color: #343a40;
+    opacity: 0.5;
+    padding-bottom: 5px;
+    position: absolute;
+    bottom: 0;
+}
+
+#dateAndTime {
+    width: 12em;
+    margin-top: 0;
+}
+
+#dateAndTime {
+    color: ghostwhite;
+    width: fit-content;
+    margin: auto;
+    background-color: DarkSlateBlue;
+    border: 2px inset darkgrey;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+}
+
+#dateAndTime:hover {
+    transform: scale(1.1);
+    background-color: black;
+    color: lime;
+}
+
+#dateContainer, #clockContainer, #timezoneContainer {
+    display: flex;
+    margin: 10px;
+}
+
+#addBtn {
+    border-width: thick !important;
+    background-color: palevioletred;
+    color: black;
+    font-weight: bold;
+    border-radius: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#addBtn:hover {
+    background-color: wheat;
+    color: orangered;
+}
+
+.formPara {
+    display: flex;
+    justify-content: center;
+    padding-top: 1em;
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-bottom: 0;
+}
+
+#legend-of-color {
+    display: flex;
+    justify-content: center;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+.legend-item {
+    display: flex;
+    width: 7em;
+    height: 7em;
+    margin: 0 3em 3em;
+    padding: 2em;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    border: 2px double lightsteelblue;
+}
+
+.legend-item:hover {
+    transform: scale(1.4);
+}
+
+#cardsContainer {
+    background-color: LightSteelBlue;
+    font-family: 'Caveat', cursive;
+    font-size: 21px;
+}
+
+#todo {
+    padding-bottom: 20px;
+    overflow: auto;
+}
+
+#card-content-wrapper {
+    padding: 1em;
+}
+
+.card-button {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.filler {
+    margin: 0;
+    background-color: lightsteelblue;
+    height: 100%;
+    position: relative;
+}
+
+
+.errorMsg {
+    font-size: 0.9em;
+    font-style: italic;
+    font-weight: bold;
+    color: red;
+    display: none;
+}
+
+#Github-link {
+    display: flex;
+    justify-content: center;
+}
+
+.card-body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+}
+
+#cardTaskName {
+    text-decoration: underline;
+}
+
+.taskCard {
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+#accordionTasks h3 {
+    text-shadow: maroon;
+}

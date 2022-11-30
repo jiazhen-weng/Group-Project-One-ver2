@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link type="image/x-icon" rel="icon"
+          href="https://lh3.googleusercontent.com/4vbbJ8MSnSOwxknMjwR5b68qUr1_Ujs3Ru8gnsoV7x_2kDZHRzXArYLu2-3_QNZ8ghM=w2400"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous"/>
+
+    <!--My Css-->
+    <link rel="stylesheet" href="style.css"/>
+
+    <!--Web font-->
+    <!--font-family: 'Lobster', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+    <!--font-family: 'Lobster Two', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap">
+    <!--font-family: 'Press Start 2P', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <!--font-family: 'Caveat', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+
+<body>
+<!-- Jumbotron -->
+<div class="jumbotron jumbotron-fluid">
+    <div class="text-center my-5" id="titleDiv">
+        <br>
+        <h1 class="font-weight-bold" id="simpleTodo">&#x2B50;Simple To-do List&#x2B50;</h1>
+        <h5 class="font-italic font-weight-bold mt-o">A simple To-do List manager for you and your group.</h5>
+        <br>
+    </div>
+    <div class="font-weight-normal text-center rounded" id="dateAndTime">
+        <p id="dateContainer"></p>
+        <p id="clockContainer"></p>
+        <p id="timezoneContainer"></p>
+    </div>
+</div>
+
+<!-- Container One-->
+<div class="container-fluid" id="container-one">
+    <!--Form-->
+    <div class="formPara">
+        <!-- Button trigger form modal -->
+        <button type="button" style="line-height: 2.1em;" class="btn btn-outline-primary border-dark"
+                data-toggle="modal" data-target="#addTaskModal" id="addBtn">
+            <span style="font-size:3.2em">&#x1F4DD</span>
+            <br><span style="font-size:1.5em">&#x2795</span>
+            <br><span>Add new task</span>
+        </button>
+    </div>
+    <!--Form modal-->
+    <div class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" id="addTaskModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTaskModalTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <form class="bg-light mx-5 border-light" id="taskForm"><!--action="url" method="post"-->
+                                <div class="form-group">
+                                    <label for="taskNameInput">Task Name</label>
+                                    <input type="text" class="form-control"
+                                           placeholder="Type in task name here (8 characters max.)"
+                                           id="taskNameInput"/>
+                                    <span class="errorMsg" id="errorMsgTaskName">*Task Name must not be empty or longer than 8 characters.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="taskDescriptionTextarea">Task Description</label>
+                                    <textarea class="form-control" rows="3"
+                                              placeholder="Describe your task briefly (15 characters max.)"
+                                              id="taskDescriptionTextarea"></textarea>
+                                    <span class="errorMsg" id="errorMsgDescription">*Must not be blank;<br>*Maximum length: 15 characters.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="assignedToMultipleSelect">Assigned to [Press and hold CTRL to
+                                        select/unselect one or more choice(s)]</label>
+                                    <select multiple class="form-control" id="assignedToMultipleSelect">
+                                        <option value="Albus Dumbledore">Albus Dumbledore</option>
+                                        <option value="Bellatrix Lestrange">Bellatrix Lestrange</option>
+                                        <option value="Draco Malfoy">Draco Malfoy</option>
+                                        <option value="Harry Potter">Harry Potter</option>
+                                        <option value="Hermione Granger">Hermione Granger</option>
+                                        <option value="Marvolo Riddle">Marvolo Riddle</option>
+                                        <option value="Neville Longbottom">Neville Longbottom</option>
+                                        <option value="Ron Weasley">Ron Weasley</option>
+                                        <option value="Severus Snape">Severus Snape</option>
+                                        <option value="Sirius Black">Sirius Black</option>
+                                    </select>
+                                    <span class="errorMsg"
+                                          id="errorMsgAssignedTo">*Must select at least one person.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateInput">Due Date</label>
+                                    <input type="date" class="form-control" id="dateInput">
+                                    <span class="errorMsg" id="errorMsgDate">*Due date must not be empty.<br>*Due date must be set in the future.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="statusSelect">Status</label>
+                                    <select class="form-control" id="statusSelect">
+                                        <option class="text-muted" value="" disabled selected hidden>--select here--
+                                        </option>
+                                        <option value="To Do">To Do</option>
+                                        <option value="In Progress">In Progress</option>
+                                        <option value="Review">Review</option>
+                                        <option value="Done">Done</option>
+                                    </select>
+                                    <span class="errorMsg" id="errorMsgStatus">Status must be selected.</span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                                    <button type="button" class="btn btn-primary" id="clear">Clear</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Container Two-->
+<div class="container-fluid" id="cardsContainer">
+    <div class="col-12">
+        <br>
+        <h3 class="font-weight-light text-center" id="taskTitle">&#x2B07 Once added, tasks will appear
+            here.&#x2B07</h3>
+        <br>
+        <h5 class="text-center font-italic" id="legend-text">Tasks cards will be ordered by status. (To do > In Progress
+            > Review > Done)</h5>
+    </div>
+    <!--Current Tasks (cards)-->
+    <div class="accordion row col-12" id="accordionTasks">
+        <div class="accordion col-3" id="ToDo">
+            <h3 class="text-center" style="background-color: #FFFF90;">To do</h3>
+        </div>
+        <div class="accordion col-3" id="InProgress">
+            <h3 class="text-center" style="background-color: #FCC3C9;">In Progress</h3>
+        </div>
+        <div class="accordion col-3" id="Review">
+            <h3 class="text-center" style="background-color: #DC88DD;">Review</h3>
+        </div>
+        <div class="accordion col-3" id="Done">
+            <h3 class="text-center" style="background-color: #CAED9D;">Done</h3>
+        </div>
+    </div>
+</div>
+<!--filler-->
+<div class="filler">
+    <!-- Footer -->
+    <footer class="container-fluid">
+        <p class="font-italic font-weight-normal text-center">2022 Simple To-do List &copy;</p>
+        <a rel="noreferrer noopener" href="https://github.com/iamxinyijiang/Group-Project-One" target="_blank"
+           class="text-white" id="Github-link">
+            <img src="images/GitHub-Mark-Light-32px.png" style="width:1.5em;" alt="Github logo">
+            GitHub Repo for this page
+        </a>
+    </footer>
+</div>
+<!--Custom JavaScript-->
+<script type="module" src="./main.js"></script>
+
+<!-- Bootstrap's JavaScript Files -->
+<script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"
+></script>
+
+</body>
+</html>
